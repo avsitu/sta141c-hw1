@@ -1,0 +1,45 @@
+P2:
+
+
+P3:
+Threshold: 0.100000, Accuracy: 0.433076
+Threshold: 0.200000, Accuracy: 0.497381
+Threshold: 0.300000, Accuracy: 0.571075
+Threshold: 0.400000, Accuracy: 0.631095
+Threshold: 0.450000, Accuracy: 0.652422
+Threshold: 0.500000, Accuracy: 0.661461
+Threshold: 0.550000, Accuracy: 0.663070
+Threshold: 0.600000, Accuracy: 0.658442
+Threshold: 0.650000, Accuracy: 0.651714
+Threshold: 0.700000, Accuracy: 0.645087
+Threshold: 0.800000, Accuracy: 0.632497
+Threshold: 1.000000, Accuracy: 0.633332
+
+P4:
+Threshold: 0.100000, Accuracy: 0.509932
+Threshold: 0.200000, Accuracy: 0.527631
+Threshold: 0.300000, Accuracy: 0.574578
+Threshold: 0.400000, Accuracy: 0.604393
+Threshold: 0.450000, Accuracy: 0.631744
+Threshold: 0.500000, Accuracy: 0.633609
+Threshold: 0.550000, Accuracy: 0.653940
+Threshold: 0.600000, Accuracy: 0.660672
+Threshold: 0.650000, Accuracy: 0.662858
+Threshold: 0.700000, Accuracy: 0.670490
+Threshold: 0.800000, Accuracy: 0.675764
+Threshold: 1.000000, Accuracy: 0.685465
+
+P4 v2:
+Threshold: 0.100000, Accuracy: 0.485320
+Threshold: 0.200000, Accuracy: 0.529606
+Threshold: 0.300000, Accuracy: 0.600640
+Threshold: 0.400000, Accuracy: 0.642501
+Threshold: 0.450000, Accuracy: 0.661208
+Threshold: 0.500000, Accuracy: 0.664620
+Threshold: 0.550000, Accuracy: 0.665789
+Threshold: 0.600000, Accuracy: 0.664066
+Threshold: 0.650000, Accuracy: 0.659760
+Threshold: 0.700000, Accuracy: 0.654906
+Threshold: 0.800000, Accuracy: 0.651311
+Threshold: 1.000000, Accuracy: 0.660134
+

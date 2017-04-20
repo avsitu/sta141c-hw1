@@ -1,0 +1,56 @@
+#!/usr/bin/python2.7
+import csv 
+import sys
+import time
+from preprocess import preprocess
+
+dataset = []
+freqs = {}
+
+def FindStops():
+	for sample in dataset:
+		words = sample[0] + sample[1]
+		for w in words: 
+			if freqs.has_key(w): freqs[w]+=1
+			else: freqs[w] = 1	
+
+def ComputeAccuracy(thr):
+	acc = 0.0
+	for sample in dataset:
+		q1 = sample[0]
+		q2 = sample[1]
+		q1_set = set(q1)
+		q2_set = set(q2)
+		overlap = 0.0
+		total = len(q1) + len(q2)
+		for w in q1:
+			if freqs[w] < 10000: # only check for overlap if not a stop word
+				if w in q2_set: overlap+=1
+			else: total -= 1 # if stop word, decrement it from total words
+		for w in q2:
+			if freqs[w] < 10000:
+				if w in q1_set: overlap+=1
+			else: total -= 1	
+		if total > 0:
+			if overlap/total >= thr: dup = 1
+			else: dup = 0
+
+			if dup == sample[2]: acc+=1
+		else: # if all words are stop words, overlapping score is zero 
+			if sample[2] == 0: acc+=1
+				
+	print "Threshold: %f, Accuracy: %f" %(thr, acc/len(dataset))
+
+start = time.time()
+
+print 'Preprocessing Data...'
+dataset = preprocess(sys.argv[1])
+
+print 'Finding Stop Words...'
+FindStops()
+
+print 'Computing Accuracy...'
+ComputeAccuracy(float(sys.argv[2]))
+
+end = time.time()
+print 'run time: %f' %(end-start)
