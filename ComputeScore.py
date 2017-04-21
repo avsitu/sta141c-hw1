@@ -16,13 +16,13 @@ def ComputeScore():
 		q2_set = set(q2)
 		overlap = 0.0
 		total = len(q1) + len(q2)
-		for w in q1:
+		for w in q1: # count overlaps of q1 words in q2
 			if w in q2_set: overlap+=1
-		for w in q2:
+		for w in q2: # count overlaps of q2 words in q1
 			if w in q1_set: overlap+=1
 
 		scores.append(overlap/total)
-	for i,s in enumerate(scores[:10]):
+	for i,s in enumerate(scores[:10]): 
 		print '%.3f,' %s,
 	print '\n'	
 	t = (min(scores),max(scores),sum(scores)/len(scores))

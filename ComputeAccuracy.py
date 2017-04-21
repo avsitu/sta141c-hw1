@@ -19,9 +19,10 @@ def ComputeAccuracy(thr):
 		for w in q2:
 			if w in q1_set: overlap+=1
 
+		# set predicted value dup	
 		if overlap/total >= thr: dup = 1
 		else: dup = 0
-
+		# check if prediction matches target
 		if dup == sample[2]: acc+=1 
 	acc = acc/len(dataset)
 	print "Threshold: %f, Accuracy: %f" %(thr,acc)

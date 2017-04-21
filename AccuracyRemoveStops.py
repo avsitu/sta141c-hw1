@@ -8,13 +8,26 @@ freqs = {}
 stops = set()
 
 def FindStops():
-	for sample in dataset:
-		words = sample[0] + sample[1]
-		for w in words: 
-			if freqs.has_key(w): freqs[w]+=1
-			else: freqs[w] = 1
-	for k in freqs:
-		if freqs[k] >= 10000: stops.add(k)
+	try: # load stop words
+		f = open('stops.txt')
+		print 'Loading Stop Words...'
+		for w in f:
+			stops.add(w[:-1])
+		f.close()	
+	except IOError:	# first run: find stop words
+		print 'Finding Stop Words...'
+		for sample in dataset:
+			words = sample[0] + sample[1]
+			for w in words: 
+				if freqs.has_key(w): freqs[w]+=1
+				else: freqs[w] = 1
+		f = open('stops.txt','w')
+		for k in freqs:
+			if freqs[k] >= 10000: 
+				stops.add(k)
+				f.write(k+'\n')
+		f.close()	
+		
 
 def ComputeAccuracy(thr):
 	acc = 0.0
@@ -43,10 +56,10 @@ def ComputeAccuracy(thr):
 				
 	print "Threshold: %f, Accuracy: %f" %(thr, acc/len(dataset))
 
+
 print 'Preprocessing Data...'
 dataset = preprocess(sys.argv[1])
 
-print 'Finding Stop Words...'
 FindStops()
 
 print 'Computing Accuracy...'
