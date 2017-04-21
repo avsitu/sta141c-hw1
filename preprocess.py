@@ -1,6 +1,7 @@
 #!/usr/bin/python2.7
 import csv 
 
+# usage: import only
 def preprocess(fn):
 	dataset = [] # stores data from file
 	replaced = ['?',',','!','.','(',')','\'','\"',':']

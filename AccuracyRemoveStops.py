@@ -1,4 +1,6 @@
 #!/usr/bin/python2.7
+
+# usage: python2 ComputeScore.py [filename] [threshold]
 import sys
 import time
 from preprocess import preprocess

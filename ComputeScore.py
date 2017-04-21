@@ -1,4 +1,6 @@
 #!/usr/bin/python2.7
+
+# usage: python2 ComputeScore.py [filename]
 import sys
 import time
 from preprocess import preprocess
@@ -20,7 +22,6 @@ def ComputeScore():
 			if w in q2_set: overlap+=1
 		for w in q2: # count overlaps of q2 words in q1
 			if w in q1_set: overlap+=1
-
 		scores.append(overlap/total)
 	for i,s in enumerate(scores[:10]): 
 		print '%.3f,' %s,
